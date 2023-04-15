@@ -1,0 +1,37 @@
+TO create a new project
+
+django-admin startproject webapps
+
+To execute project
+
+python3 manage.py runserver
+
+To create a app 
+python3 manage.py startapp hello
+
+In project folder goto: settings.py
+save installed app 'hello'
+
+goto hello folder
+
+views.py
+    create fun() save it 
+
+create a new file urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+     path("", views.index, name="index"),
+     path("<str:name>", views.greet, name="greet"),
+
+ ]
+
+goto project urls.py
+from django.contrib import admin
+    from django.urls import path, include
+
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('hello/', include("hello.urls"))
+    ]
